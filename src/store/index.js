@@ -5,16 +5,22 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    navDrawerOpen: false
+    servers: [],
+    sidebarShowServerDetails: false
   },
   mutations: {
-    navDrawerOpen(state, navDrawerOpen) {
-      state.navDrawerOpen = navDrawerOpen;
+    setSidebarServerDetails(state, isOpen) {
+      state.sidebarShowServerDetails = isOpen;
     }
   },
   actions: {
-    toggleDrawer({ commit, state }) {
-      commit("navDrawerOpen", !state.navDrawerOpen);
+    toggleSidebarServerDetails({ commit, state }) {
+      commit("setSidebarServerDetails", !state.sidebarShowServerDetails);
+    }
+  },
+  getters: {
+    hasActiveServer(state) {
+      return state.servers.length > 0;
     }
   },
   modules: {}

@@ -1,5 +1,5 @@
 <template>
-  <v-list-item link dark>
+  <v-list-item :to="to" dark>
     <v-list-item-icon>
       <v-icon>{{ icon }}</v-icon>
     </v-list-item-icon>
@@ -12,6 +12,6 @@
 
 <script>
 export default {
-  props: ["icon", "title"]
+  props: ["icon", "title", "to"]
 };
 </script>
