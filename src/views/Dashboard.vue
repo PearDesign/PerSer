@@ -1,37 +1,25 @@
 <template>
-  <div class="home">
-    <div class="image-wrapper">
-      <img
-        class="logo"
-        alt="PerSer logo"
-        src="../assets/images/StoneHenge.png"
-      />
-      <div>
-        <h1 class="display-2 mb-3">PerSer</h1>
-        <p class="mb-3">
-          The Personal Server Management Tool
-        </p>
-      </div>
-    </div>
+  <v-container>
+    <v-content class="image-wrapper pa-4">
+      <h1 class="display-2 mb-3">PerSer</h1>
+      <p>
+        The Personal Server Management Tool
+      </p>
+    </v-content>
     <v-divider />
-    <p>Stuff</p>
-  </div>
+    <SetupStatus />
+  </v-container>
 </template>
 
 <script>
+import SetupStatus from "../components/SetupStatus";
+
 export default {
   name: "home",
-  components: {}
+  components: {
+    SetupStatus
+  }
 };
 </script>
 
-<style lang="scss" scoped>
-img.logo {
-  width: 200px;
-}
-.image-wrapper {
-  align-items: center;
-  justify-content: flex-start;
-  display: flex;
-}
-</style>
+<style lang="scss" scoped></style>

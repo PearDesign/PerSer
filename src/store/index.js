@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     activeServerIndex: null,
+    cloudProviders: [],
     servers: [],
     sidebarShowServerDetails: false
   },
@@ -23,8 +24,14 @@ export default new Vuex.Store({
     hasActiveServer(state) {
       return state.activeServerIndex ? true : false;
     },
+    hasCloudProviders(state) {
+      return state.cloudProviders.length > 0;
+    },
     hasLoadedServers(state) {
       return state.servers.length > 0;
+    },
+    requiresSetup(state) {
+      return !state.hasLoadedServers || !state.hasCloudProviders;
     }
   },
   modules: {}

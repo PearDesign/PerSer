@@ -10,22 +10,10 @@
     <h1 class="display-2">Welcome to PerSer!</h1>
     <div class="subtitle mb-4">The Personal Server Management Tool</div>
     <div class="button-container">
-      <v-btn
-        class="ma-2"
-        :loading="loading2"
-        :disabled="loading2"
-        color="success"
-        @click="$router.push('/tour/')"
-      >
+      <v-btn class="ma-2" color="success" @click="$router.push('/tour/')">
         I'm new! I'd like a tour!
       </v-btn>
-      <v-btn
-        class="ma-2"
-        :loading="loading2"
-        :disabled="loading2"
-        color="warning"
-        @click="$router.push('/about/')"
-      >
+      <v-btn class="ma-2" color="warning" @click="$router.push('/dashboard/')">
         I got this!
       </v-btn>
     </div>
