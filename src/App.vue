@@ -17,7 +17,8 @@ export default {
   },
   computed: {
     showSidebar() {
-      return this.$route.path != "/intro/";
+      const pathsWithoutSidebar = ["/intro/", "/tour/"];
+      return pathsWithoutSidebar.indexOf(this.$route.path) == -1;
     }
   },
   data: () => ({
@@ -33,10 +34,12 @@ export default {
   },
   mounted() {
     this.loadServers();
-    if (this.$store.getters.hasLoadedServers) {
-      this.$router.push({ path: "/dashboard/" });
-    } else {
-      this.$router.push({ path: "/intro/" });
+    if (this.$route.path == "/") {
+      if (this.$store.getters.hasLoadedServers) {
+        this.$router.push({ path: "/dashboard/" });
+      } else {
+        this.$router.push({ path: "/intro/" });
+      }
     }
   }
 };

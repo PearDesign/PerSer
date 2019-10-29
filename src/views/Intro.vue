@@ -15,9 +15,9 @@
         :loading="loading2"
         :disabled="loading2"
         color="success"
-        @click="loader = 'loading2'"
+        @click="$router.push('/tour/')"
       >
-        I'd like the tour
+        I'm new! I'd like a tour!
       </v-btn>
       <v-btn
         class="ma-2"
@@ -26,7 +26,7 @@
         color="warning"
         @click="$router.push('/about/')"
       >
-        I know what I'm doing
+        I got this!
       </v-btn>
     </div>
   </v-content>
