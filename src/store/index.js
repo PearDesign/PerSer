@@ -8,6 +8,7 @@ export default new Vuex.Store({
     activeServerIndex: null,
     cloudProviders: [],
     servers: [],
+    SSHKeys: [],
     sidebarShowServerDetails: false
   },
   mutations: {
@@ -30,8 +31,13 @@ export default new Vuex.Store({
     hasLoadedServers(state) {
       return state.servers.length > 0;
     },
+    hasSSHKeys(state) {
+      return state.SSHKeys.length > 0;
+    },
     requiresSetup(state) {
-      return !state.hasLoadedServers || !state.hasCloudProviders;
+      return (
+        !state.hasSSHKeys || !state.hasLoadedServers || !state.hasCloudProviders
+      );
     }
   },
   modules: {}

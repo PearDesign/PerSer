@@ -22,7 +22,7 @@
           :loading="loading2"
           :disabled="loading2"
           color="warning"
-          @click="$router.push('/about/')"
+          @click="$router.push('/dashboard/')"
         >
           I got this!
         </v-btn>

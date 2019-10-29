@@ -7,7 +7,7 @@
       </p>
     </v-content>
     <v-divider />
-    <SetupStatus />
+    <SetupStatus v-if="$store.getters.requiresSetup" />
   </v-container>
 </template>
 
