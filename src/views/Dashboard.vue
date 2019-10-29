@@ -9,7 +9,7 @@
       <div>
         <h1 class="display-2 mb-3">PerSer</h1>
         <p class="mb-3">
-          The Personal Server Management Utility
+          The Personal Server Management Tool
         </p>
       </div>
     </div>
@@ -25,7 +25,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 img.logo {
   width: 200px;
 }

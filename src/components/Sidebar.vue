@@ -14,7 +14,7 @@
     </v-list-item>
     <v-divider v-if="$store.getters.hasActiveServer" dark></v-divider>
     <v-list>
-      <SidebarLink title="Dashboard" icon="mdi-home" to="/" />
+      <SidebarLink title="Dashboard" icon="mdi-home" to="/dashboard/" />
       <SidebarLink title="Applications" icon="mdi-apps" to="/applications/" />
       <SidebarLink title="Cloud Providers" icon="mdi-cloud" to="/providers/" />
       <SidebarLink title="Server Health" icon="mdi-medical-bag" to="/status/" />
@@ -24,7 +24,7 @@
     <v-divider dark></v-divider>
     <v-list>
       <SidebarLink title="About" icon="mdi-information" to="/about/" />
-      <SidebarLink title="Help" icon="mdi-help-circle" to="/help/" />
+      <SidebarLink title="Help" icon="mdi-help-circle" to="/intro/" />
       <SidebarLink title="Settings" icon="mdi-settings" to="/settings/" />
     </v-list>
   </v-navigation-drawer>

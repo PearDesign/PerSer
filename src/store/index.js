@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    activeServerIndex: null,
     servers: [],
     sidebarShowServerDetails: false
   },
@@ -20,6 +21,9 @@ export default new Vuex.Store({
   },
   getters: {
     hasActiveServer(state) {
+      return state.activeServerIndex ? true : false;
+    },
+    hasLoadedServers(state) {
       return state.servers.length > 0;
     }
   },
