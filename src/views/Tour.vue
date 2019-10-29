@@ -7,11 +7,25 @@
         reverse-transition="scale-transition"
         transition="scale-transition"
       >
-        <v-sheet color="deep-purple" height="100%" tile>
+        <v-sheet
+          color="deep-purple"
+          height="100%"
+          tile
+          v-if="slide.type == 'img'"
+        >
           <v-row class="fill-height" align="center" justify="center">
             <img class="logo" :alt="slide.alt" :src="slide.src" />
           </v-row>
         </v-sheet>
+        <v-btn
+          class="ma-2"
+          :loading="loading2"
+          :disabled="loading2"
+          color="warning"
+          @click="$router.push('/about/')"
+        >
+          I got this!
+        </v-btn>
       </v-carousel-item>
     </v-carousel>
   </v-content>
@@ -24,19 +38,26 @@ export default {
       slides: [
         {
           alt: "PerSer Intro Slide #1",
-          src: require("../assets/images/StoneHenge.png")
+          src: require("../assets/images/StoneHenge.png"),
+          type: "img"
         },
         {
           alt: "PerSer Intro Slide #2",
-          src: require("../assets/images/StoneHenge.png")
+          src: require("../assets/images/StoneHenge.png"),
+          type: "img"
         },
         {
           alt: "PerSer Intro Slide #3",
-          src: require("../assets/images/StoneHenge.png")
+          src: require("../assets/images/StoneHenge.png"),
+          type: "img"
         },
         {
           alt: "PerSer Intro Slide #4",
-          src: require("../assets/images/StoneHenge.png")
+          src: require("../assets/images/StoneHenge.png"),
+          type: "img"
+        },
+        {
+          type: "ending"
         }
       ]
     };
