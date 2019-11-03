@@ -1,34 +1,30 @@
 <template>
   <v-stepper v-model="activeSetupStepIndex" vertical>
-    <v-stepper-header>
-      <template v-for="(step, index) in steps">
-        <v-stepper-step
-          :key="`${index}-step`"
-          :complete="step.complete"
-          :step="index + 1"
-        >
-          {{ step.title }}
-        </v-stepper-step>
-        <v-divider :key="`${index}-divider`"></v-divider>
-      </template>
-    </v-stepper-header>
-
-    <v-stepper-items>
-      <v-stepper-content
-        v-for="(step, index) in steps"
-        :key="`${index}-content`"
+    <template v-for="(step, index) in steps">
+      <v-stepper-step
+        :key="`${index}-step`"
+        :complete="step.complete"
         :step="index + 1"
       >
-        <v-card color="grey lighten-3" class="" height="200px">{{
-          step.description
-        }}</v-card>
+        {{ step.title }}
+      </v-stepper-step>
+
+      <v-stepper-content :key="`${index}-content`" :step="index + 1">
+        <v-card>
+          <SSHKeySetupInstructions v-if="step.description == 'SSH Keys'" />
+        </v-card>
       </v-stepper-content>
-    </v-stepper-items>
+    </template>
   </v-stepper>
 </template>
 
 <script>
+import SSHKeySetupInstructions from "@/components/setup/SSHKeys";
+
 export default {
+  components: {
+    SSHKeySetupInstructions
+  },
   computed: {
     activeSetupStepIndex() {
       if (!this.$store.getters.hasSSHKeys) {
@@ -44,7 +40,7 @@ export default {
       return [
         {
           complete: this.$store.getters.hasSSHKeys,
-          description: "(Placeholder) You need to set up SSH keys",
+          description: "SSH Keys",
           icon: "mdi-folder",
           iconClass: "grey lighten-1 white--text",
           title: "Set up SSH keys"
