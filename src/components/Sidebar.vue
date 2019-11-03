@@ -1,5 +1,10 @@
 <template>
-  <v-navigation-drawer app dark class="deep-purple accent-4 sidebar-content">
+  <v-navigation-drawer
+    app
+    dark
+    permanent
+    class="deep-purple accent-4 sidebar-content"
+  >
     <v-list-item
       class="deep-purple accent-4"
       dark
@@ -14,30 +19,30 @@
     </v-list-item>
     <v-divider v-if="$store.getters.hasActiveServer" dark></v-divider>
     <v-list>
-      <SidebarLink title="Dashboard" icon="mdi-home" to="/dashboard/" />
-      <SidebarLink title="Applications" icon="mdi-apps" to="/applications/" />
-      <SidebarLink title="Cloud Providers" icon="mdi-cloud" to="/providers/" />
-      <SidebarLink title="Server Health" icon="mdi-medical-bag" to="/status/" />
-      <SidebarLink title="Security" icon="mdi-lock-question" to="/security/" />
-      <SidebarLink title="Users" icon="mdi-account-multiple" to="/users/" />
+      <NavLink title="Dashboard" icon="mdi-home" to="/dashboard/" />
+      <NavLink title="Applications" icon="mdi-apps" to="/applications/" />
+      <NavLink title="Cloud Providers" icon="mdi-cloud" to="/providers/" />
+      <NavLink title="Server Health" icon="mdi-medical-bag" to="/status/" />
+      <NavLink title="Security" icon="mdi-lock-question" to="/security/" />
+      <NavLink title="Users" icon="mdi-account-multiple" to="/users/" />
     </v-list>
     <v-divider dark></v-divider>
     <v-list>
-      <SidebarLink title="About" icon="mdi-information" to="/about/" />
-      <SidebarLink title="Help" icon="mdi-help-circle" to="/intro/" />
-      <SidebarLink title="Settings" icon="mdi-settings" to="/settings/" />
+      <NavLink title="About" icon="mdi-information" to="/about/" />
+      <NavLink title="Help" icon="mdi-help-circle" to="/intro/" />
+      <NavLink title="Settings" icon="mdi-settings" to="/settings/" />
     </v-list>
   </v-navigation-drawer>
 </template>
 
 <script>
 import ActiveServerDetails from "./ActiveServerDetails";
-import SidebarLink from "./SidebarLink";
+import NavLink from "./NavLink";
 
 export default {
   components: {
     ActiveServerDetails,
-    SidebarLink
+    NavLink
   },
   data() {
     return {

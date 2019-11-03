@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import db from "@/utils/datastore.js";
 import Sidebar from "./components/Sidebar";
 
 export default {
@@ -25,15 +26,33 @@ export default {
     //
   }),
   methods: {
-    loadServers() {
-      console.log("TODO: Load servers");
-    },
-    toggleDrawer() {
-      console.log("Toggling");
+    loadDataFromPersistentFilestore() {
+      const dispatch = this.$store.dispatch;
+
+      // Cloud Providers
+      db.find({ contentType: "CloudProvider" })
+        .sort({ order: 1 })
+        .exec(function(err, persistedProviders) {
+          dispatch("updateCloudProviders", persistedProviders);
+        });
+
+      //Servers
+      db.find({ contentType: "Server" })
+        .sort({ order: 1 })
+        .exec(function(err, persistedServers) {
+          dispatch("updateServers", persistedServers);
+        });
+
+      // SSH Keys
+      db.find({ contentType: "SSHKey" })
+        .sort({ order: 1 })
+        .exec(function(err, persistedKeys) {
+          dispatch("updateSSHKeys", persistedKeys);
+        });
     }
   },
   mounted() {
-    this.loadServers();
+    this.loadDataFromPersistentFilestore();
     if (this.$route.path == "/") {
       if (this.$store.getters.hasLoadedServers) {
         this.$router.push({ path: "/dashboard/" });
