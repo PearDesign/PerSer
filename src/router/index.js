@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Dashboard from "../views/Dashboard.vue";
 import Intro from "../views/Intro.vue";
+import SSHKeys from "../views/SSHKeys";
 import Tour from "../views/Tour.vue";
 
 Vue.use(VueRouter);
@@ -16,6 +17,11 @@ const routes = [
     path: "/intro/",
     name: "intro",
     component: Intro
+  },
+  {
+    path: "/sshkeys/",
+    name: "sshkeys",
+    component: SSHKeys
   },
   {
     path: "/tour/",

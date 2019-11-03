@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <v-container>
     <h1>This is an about page</h1>
     <h2>Projects to Support</h2>
     <p>
@@ -11,5 +11,5 @@
     <ul>
       <li><a href="https://github.com/louischatriot/nedb">nedb</a></li>
     </ul>
-  </div>
+  </v-container>
 </template>

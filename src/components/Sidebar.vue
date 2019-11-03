@@ -25,7 +25,7 @@
       <NavLink title="Dashboard" icon="mdi-home" to="/dashboard/" />
       <NavLink title="Cloud Providers" icon="mdi-cloud" to="/providers/" />
       <NavLink title="Servers" icon="mdi-server" to="/servers/" />
-      <NavLink title="SSH Keys" icon="mdi-lock-question" to="/security/" />
+      <NavLink title="SSH Keys" icon="mdi-lock-question" to="/sshkeys/" />
       <NavLink title="Users" icon="mdi-account-multiple" to="/users/" />
     </v-list>
     <v-divider></v-divider>
